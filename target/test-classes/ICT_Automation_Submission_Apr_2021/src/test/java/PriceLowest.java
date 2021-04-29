@@ -2,6 +2,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.google.common.collect.Ordering;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,17 +34,15 @@ public class PriceLowest extends BasePage {
         click(searchShoe);
         Select dropdown = new Select(driver.findElement(relevant));
         dropdown.selectByVisibleText("Price (lowest first)");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
         List<WebElement> li = new LinkedList<>(driver.findElements(listPrice));
         LinkedList<String> pn = new LinkedList<String>();
         for (int i = 0; i < li.size(); i++) {
             pn.add((li.get(i).getText()));
         }
-
-
-        System.out.println(pn.get(0));
         boolean isSorted = Ordering.natural().isOrdered(pn);
         System.out.println(isSorted);
+        System.out.println(pn.getFirst());
         Reports.extentTest.log(Status.INFO,"Lowest Price "+shoeName);
     }
 
@@ -52,8 +51,10 @@ public class PriceLowest extends BasePage {
         System.out.println(prdName);
         String prdPrice = driver.findElement(firstPrdPrice).getText();
         System.out.println(prdPrice);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 150)",prdPrice);
         try{
-            Assert.assertTrue(prdPrice.contains("104"));
+            Assert.assertTrue(prdPrice.contains("100"));
             Reports.extentTest.log(Status.PASS,"Lowest Price verified as "+prdPrice, MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot()).build());
         }
         catch (Exception e){

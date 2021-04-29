@@ -68,50 +68,48 @@ public class AjioTest {
         MenMenu search7 = new MenMenu(driver);
         search7.menCategory("Menu");
     }
+
     @Test(priority = 8)
     public void ProceedShipping() throws IOException {
         Reports.createTest("Verify Shipping");
         ProceedShipping search8 = new ProceedShipping(driver);
-        search8.buyJacket("Jacket");
-        search8.verifyShipping("Jacket");
+        search8.buyJacket("jacketName");
+        search8.verifyShipping("jacketName");
     }
-
     @Test(priority = 9)
     public void VerifyFooter() throws IOException {
-        Reports.createTest("Verify footer");
+        Reports.createTest("Verify Footer");
         VerifyFooter search9 = new VerifyFooter(driver);
-        search9.ajioFooter("footerTexts");
-        search9.verifyAjioFooter("footerTexts");
+        search9.ajioFooter("footerText");
+        search9.verifyAjioFooter("footerText");
     }
 
     @Test(priority = 10)
     public void ReturnPolicy() throws IOException {
-        Reports.createTest("Verify Return");
+        Reports.createTest("Verify Return Policy");
         ReturnPolicy search10 = new ReturnPolicy(driver);
-        search10.returnJacket("ReturnPolicy");
-        search10.verifyReturnJacket("ReturnPolicy");
+        search10.returnJacket("jacketName");
+        search10.verifyReturnJacket("jacketName");
     }
     @Test(priority = 11)
     public void CustomerCare() throws IOException {
-        Reports.createTest("Verify FAQ");
+        Reports.createTest("Verify CustomerCare");
         CustomerCare search11 = new CustomerCare(driver);
-        search11.custFAQSearch("FAQ");
-        search11.verifyCustCare("FAQ");
+        search11.custFAQSearch("custCheck");
+        search11.verifyCustCare("custCheck");
     }
-
     @Test(priority = 12)
     public void FilterGender() throws IOException {
-        Reports.createTest("Verify filter");
+        Reports.createTest("Verify Filter");
         FilterGender search12 = new FilterGender(driver);
-        search12.filterJacket("Total");
-        search12.menJacket("Men");
-        search12.womenJacket("Women");
-        search12.verifyFilterJacket("Total,Men,Women");
+        search12.filterJacket("jacketCount");
+        search12.menJacket("jacketCount");
+        search12.womenJacket("jacketCount");
+        search12.verifyFilterJacket("jacketCount");
     }
-
     @Test(dataProvider = "SearchText",priority = 13)
     public void BrandPuma(String searchKey) throws IOException {
-        Reports.createTest("Verify PUMA");
+        Reports.createTest("Verify Brand");
         BrandPuma search13 = new BrandPuma(driver);
         search13.prdPuma("PUMA");
         search13.verifyPrdPuma("PUMA");
@@ -124,7 +122,7 @@ public class AjioTest {
         search14.prdAdidas("ADIDAS");
         search14.verifyAdidas("ADIDAS");
     }
-   
+
     @Test(priority = 15)
     public void VerifyURL() throws IOException {
         Reports.createTest("Verify URL");

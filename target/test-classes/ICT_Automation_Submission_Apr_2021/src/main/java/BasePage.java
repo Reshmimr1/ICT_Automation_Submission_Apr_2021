@@ -37,4 +37,17 @@ public class BasePage {
     public  String getText(By locator){
     return locateElement(locator).getText();
     }
+
+    public void findElement(By locator){
+        findElement((By) locateElement(locator));
+    }
+    public void sendKeys(By locator){
+        locateElement(locator).sendKeys();
+    }
+    public void gotoPage(String URL){
+        driver.navigate().to(URL);
+    }
+    public void testCleanup(){
+        driver.quit();
+    }
 }

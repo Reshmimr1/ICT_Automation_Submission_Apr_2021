@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class FilterGender extends BasePage {
     private WebDriver driver;
@@ -47,8 +48,7 @@ public class FilterGender extends BasePage {
         }
         public void womenJacket(String jacketCount) throws IOException{
         click(searchWomen);
-        WebDriverWait wait = new WebDriverWait(driver,20);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(searchWomen));
+        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         String women=driver.findElement(womenFilter).getText();
         System.out.println(women);
         String countWomen = driver.findElement(countJackets).getText();

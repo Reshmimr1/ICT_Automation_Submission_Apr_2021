@@ -51,4 +51,9 @@ public class AddToBag extends BasePage {
             Reports.extentTest.log(Status.FAIL,"Title not matching, actual title is "+actualText,MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot()).build());
         }
     }
+
+    @Override
+    public void testCleanup() {
+        this.testCleanup();
+    }
 }
