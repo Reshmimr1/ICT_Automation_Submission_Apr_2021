@@ -6,7 +6,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class Browser{
     public static WebDriver openBrowser(String browser) throws Exception{
-        if(browser.equalsIgnoreCase("Chrome")){
+//        if(browser.equalsIgnoreCase("Chrome")){
             String baseDirectory=System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver",baseDirectory+"/src/main/resources/chromedriver.exe");
             ChromeOptions options=new ChromeOptions();
@@ -25,10 +25,10 @@ public class Browser{
 //            driver.manage().window().maximize();
 //            driver.navigate().to("https://www.ajio.com/");
 //            return driver;
-        }
-        else {
-                throw new Exception("Invalid Browser");
-            }
+//        }
+//        else {
+//                throw new Exception("Invalid Browser");
+//            }
     }
     public static void closeBrowser(WebDriver driver){
         driver.close();

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" thread-count="2" parallel="tests" >
+<suite name="All Test Suite" >
     <listeners>
         <listener class-name="ListenerTest"/>
     </listeners>
     <test verbose="2" preserve-order="true"
           name="ChromeTest">
-        <parameter name="browser" value="Chrome" />
+
         <classes><class name="AjioTest"></class>
             <class name="Reports"></class>
     </classes>
