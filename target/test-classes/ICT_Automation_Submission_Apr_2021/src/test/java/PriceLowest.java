@@ -54,7 +54,7 @@ public class PriceLowest extends BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 150)",prdPrice);
         try{
-            Assert.assertTrue(prdPrice.contains("100"));
+            Assert.assertTrue(prdPrice.contains("104"));
             Reports.extentTest.log(Status.PASS,"Lowest Price verified as "+prdPrice, MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot()).build());
         }
         catch (Exception e){

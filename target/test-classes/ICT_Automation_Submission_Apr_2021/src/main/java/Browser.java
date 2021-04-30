@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class Browser{
-    public static WebDriver openBrowser(String browser) throws Exception{
+    public static WebDriver openBrowser() throws Exception{
 //        if(browser.equalsIgnoreCase("Chrome")){
             String baseDirectory=System.getProperty("user.dir");
             System.setProperty("webdriver.chrome.driver",baseDirectory+"/src/main/resources/chromedriver.exe");
